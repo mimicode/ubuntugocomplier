@@ -11,15 +11,5 @@ RUN wget -O /tmp/$goversionname.linux-amd64.tar.gz https://dl.google.com/go/$gov
     go env -w GO111MODULE=on && go env -w GOPROXY=https://goproxy.cn,direct &&\
     go env -w GOROOT=/usr/local/go &&\
     go env -w GOPATH=/home/gopath
-# install node
-RUN wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash &&\
-    export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")" &&\
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" &&\
-    nvm install $nodeversion && \
-    nvm alias default $nodeversion && \
-    npm install -g yarn && \
-    node -v && yarn -v
-
-
-
+    
 CMD ["/bin/bash"]
