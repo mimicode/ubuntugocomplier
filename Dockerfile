@@ -1,6 +1,6 @@
 FROM ubuntu:22.04
 ENV PATH=$PATH:/usr/local/go/bin:/usr/local/bin
-ENV goversionname=go1.21.7
+ENV goversionname=go1.25.10
 ENV nodeversion=v16.20.2
 
 RUN apt-get update && apt-get install -y gcc-multilib gcc g++ make git wget gcc-mingw-w64
